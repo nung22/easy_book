@@ -1,1 +1,1 @@
-# easy_text
+# easy_book
