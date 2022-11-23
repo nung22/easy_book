@@ -1,0 +1,22 @@
+{% extends 'user_navbar.html' %}
+
+{% block site_info %}
+<div class="show-books">
+    <div class="header fs-3">
+        <hr size="4" width="500rem" color="white">
+        <span class="text-light mx-2">{{ title }}</span>
+        <hr size="4" width="500rem" color="white">
+    </div>
+    <div class="books">
+        {% for book in all_books %}
+        <a href="/show_book/{{ book.id }}">
+            <div class="book">
+                <img class="book-img mb-3" src="{{ url_for('static', filename='assets/covers/' + book.isbn + '.jpg') }}" alt="Cover for {{ book.title }}" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
+                <a onmouseover="addUnderline(this)" onmouseout="removeUnderline(this)" class="fw-bold text-light" href="/show_book/{{ book.id }}">{{ book.title }}</a>
+                <a href="#" class="text-light">by <span onmouseover="addUnderline(this)" onmouseout="removeUnderline(this)" class="text-info fw-bold">{{ book.author_first_name }} {{ book.author_last_name }}</span></a>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+{% endblock site_info %}

@@ -1,0 +1,65 @@
+{% extends 'admin/admin_navbar.html' %}
+{% block tool %}
+<div class="container book-form-container p-3">
+    <form action="/new_book" method="post">
+        <h2 class="mb-3 fw-bold text-success">Add Book</h2>
+        <div class="book-warning">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="flash-message rounded p-2 mb-2">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        </div>
+        <input type="hidden" name="user_id" value="{{ session.user_id }}">
+        <div class="form-group mb-2">
+            <label for="title">Title</label> 
+            <input required class="form-control bg-light" type="text" name="title" placeholder="title" id="title">
+        </div>
+        <div class="form-group mb-2">
+            <label for="author">Author</label>
+            <div class="input-group">
+                <input required class="form-control bg-light" type="text" name="author_first_name" placeholder="first name" id="author">
+                <input required class="form-control bg-light" type="text" name="author_last_name" placeholder="last name" id="author">
+            </div>
+        </div>
+        <div class="form-group mb-2">
+            <label for="description">Description</label>
+            <textarea class="form-control bg-light" name="description" id="description" placeholder="description..." rows="3"></textarea>
+        </div>
+        <div class="form-group mb-2">
+            <label for="price">Price</label>
+            <input required class="form-control bg-light" type="number" name="price" step="0.01" placeholder="0.01" id="price">
+        </div>
+        <div class="form-group mb-2">
+            <label for="quantity">Quantity</label>
+            <input required class="form-control bg-light" type="number" name="available" placeholder="1" id="quantity">
+        </div>
+        <div class="form-group mb-2">
+            <label for="genre">Genre</label>
+            <select required class="form-control bg-light" name="genre" id="genre">
+                <option selected disabled value="">-- select a genre --</option>
+                <option value="Cookbook">Cookbook</option>
+                <option value="Crime">Crime</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Graphic Novel">Graphic Novel</option>
+                <option value="Horror">Horror</option>
+                <option value="Manga">Manga</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+            </select>
+        </div>
+        <div class="form-group mb-2">
+            <label for="isbn">ISBN 13</label>
+            <input required class="form-control bg-light" type="text" name="isbn" placeholder="isbn" id="isbn">
+        </div>
+        <div class="form-group mb-2">
+            <label for="cover">Cover Image</label>
+            <input required class="form-control bg-light" type="file" name="cover" id="cover">
+        </div>
+        <input type="hidden" name="rented" value="0">
+        <input class="form-control btn-outline-success btn" type="submit" value="Submit">
+    </form>
+</div>
+{% endblock tool %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container p-3 grid-container-show-plant">
+    <div class="spacer"></div>
+    <a class="create-card-link text-end fs-6 bg-warning text-light btn" href="/plants/new">Add Painting</a>
+    <a class="return-card-link text-end fs-6 bg-info text-light btn" href="/plants">Dashboard</a>
+    <a class="logout-card-link text-end fs-6 bg-danger text-light btn" href="/logout">Logout</a>
+    <h1 class="card-name">{{ plant.title }}</h1>
+    <h5 class="card-artist text-start">Posted by: {{ plant.first_name }} {{ plant.last_name }}</h5>
+    <div class="plant-card form-container rounded">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <th scope="row">Description:</th>
+                    <td>{{ plant.description }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Price:</th>
+                    <td>${{ plant.price }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Number Purchased:</th>
+                    <td>{{ plant.num_purchased }}</td>
+                </tr>
+            </tbody>
+        </table>
+        {% if plant.quantity > 0 %}
+        <a class="buy-link fs-6 bg-success text-light btn" href="/buy_plant/{{ plant.id }}/{{ plant.quantity }}/{{ plant.num_purchased }}">Buy</a>
+        {% else %}
+        <h5 class="fw-bold ms-2 text-danger">Sold Out!</h5>
+        {% endif %}
+    </div>
+</div>
+{% endblock content %}

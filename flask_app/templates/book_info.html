@@ -1,0 +1,24 @@
+{% extends 'user_navbar.html' %}
+
+{% block site_info %}
+<div class="book-info">
+    <img class="book-img" src="{{ url_for('static', filename='assets/covers/' + book.isbn + '.jpg') }}" alt="Cover for {{ book.title }}" onmouseover="addOutline(this)" onmouseout="removeOutline(this)">
+    <div class="book-details text-light">
+        <h1 class="book-title">{{ book.title }}</h1>
+        <a class="book-author text-light fs-5" href="#">by <span onmouseover="addUnderline(this)" onmouseout="removeUnderline(this)" class="text-info">{{ book.author_first_name }} {{ book.author_last_name }}</span></a>
+        <hr size="4" width="550rem" color="white">
+        <h1 class="price fw-bold">${{ book.price }}</h1>
+        <h5 class="genre"><span class="fw-bold">Genre:</span> {{ book.genre }}</h5>
+        <h6 class="isbn"><span class="fw-bold">ISBN 13:</span> {{ book.isbn[:3] }}-{{ book.isbn[3] }}-{{ book.isbn[4:10] }}-{{ book.isbn[10:12] }}-{{ book.isbn[12] }}</h6>
+        <span>
+            <a class="btn btn-primary fw-bold me-2" href="#">ADD TO CART</a>
+            <a class="btn btn-outline-success fw-bold ms-2" href="/logout">Instant Rental</a>
+        </span>
+    </div>
+    <div class="book-description text-light">
+        <hr size="4" width="900rem" color="white">
+        <h5 class="text-light fw-bold text-decoration-underline mb-2">Description</h5>
+        <p class="description">{{ book.description }}</p>
+    </div>
+</div>
+{% endblock site_info %}

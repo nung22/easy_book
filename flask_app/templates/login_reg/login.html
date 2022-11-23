@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg user-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">EasyBook</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="user-warning">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="flash-message rounded p-2 mb-2">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="login-reg login">
+        <h1 class="text-light fw-bold">Sign In</h1>
+        <form action="/login" method="post">
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="email">Email</label>
+                <input class="form-control bg-light" type="text" name="email" id="email">
+            </div>
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="password">Password</label>
+                <input class="form-control bg-light" type="password" name="password" id="password">
+            </div>
+            <input class="form-control btn btn-primary fw-bold mt-2" type="submit" value="SIGN IN">
+        </form>
+        <div class="option mt-4">
+            <hr size="5" width="140rem" color="white">
+            <span class="text-light mx-2">OR</span>
+            <hr size="5" width="140rem" color="white">
+        </div>
+        <a href="/register_user" class="form-control btn btn-outline-light fw-bold mt-4">CREATE ACCOUNT</a>
+    </div>
+</div>
+{% endblock content %}

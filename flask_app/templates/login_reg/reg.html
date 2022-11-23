@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<nav class="navbar navbar-expand-lg user-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">EasyBook</a>
+    </div>
+</nav>
+<div class="container">
+    <div class="user-warning">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="flash-message rounded p-2 mb-2">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+    </div>
+    <div class="login-reg reg">
+        <h1 class="text-light fw-bold">Create Account</h1>
+        <form action="/register" method="post">
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="fname">First Name</label>
+                <input class="form-control bg-light" type="text" name="first_name" placeholder="" id="fname">
+            </div>
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="lname">Last Name</label>
+                <input class="form-control bg-light" type="text" name="last_name" placeholder="" id="lname">
+            </div>
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="email">Email</label>
+                <input class="form-control bg-light" type="text" name="email" placeholder="name@example.com" id="email">
+            </div>
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="phone_number">Phone Number</label>
+                <input class="form-control bg-light" type="text" name="phone_number" placeholder="" id="phone_number" aria-describedby="phoneNumberHelpBlock">
+                <div id="phoneNumberHelpBlock" class="form-text">
+                    Enter only the digits of your phone number without including any spaces, dashes, or parentheses. <br> Ex: (123) 456-7890 would be entered as 1234567890.
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="pass">Password</label>
+                <input class="form-control bg-light" type="password" name="password" placeholder="" id="pass" aria-describedby="passwordHelpBlock">
+                <div id="passwordHelpBlock" class="form-text">
+                    Your password must be at least 8 characters long.
+                </div>
+            </div>
+            <div class="form-group row mb-3">
+                <label class="text-light mb-1" for="cpass">Confirm Password</label>
+                <input class="form-control bg-light" type="password" name="confirm_password" placeholder="type password again" id="cpass">
+            </div>
+            <input class="form-control btn btn-primary fw-bold mt-2" type="submit" value="CREATE ACCOUNT">
+        </form>
+    </div>
+</div>
+{% endblock content %}

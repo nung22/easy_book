@@ -1,0 +1,21 @@
+{% extends 'admin/admin_navbar.html' %}
+
+{% block dashboard %}
+<div class="dashboard-categories">
+    <div class="info bg-primary">
+        <h2 class="fs-1">{{ total_books }}</h2>
+        <h5 class="mt-3 mb-4">All Books</h5>
+        <a href="/dashboard_books" class="bg-light btn btn-light text-primary">View Details</a>
+    </div>
+    <div class="info bg-success">
+        <h2 class="fs-1">{{ total_users }}</h2>
+        <h5 class="mt-3 mb-4">All Users</h5>
+        <a href="/dashboard_users" class="bg-light btn btn-light text-success">View Details</a>
+    </div>
+    <div class="info bg-warning">
+        <h2 class="fs-1">{{ total_rentals }}</h2>
+        <h5 class="mt-3 mb-4">All Rentals</h5>
+        <a href="/dashboard_rentals" class="bg-light btn btn-light text-warning">View Details</a>
+    </div>
+</div>
+{% endblock dashboard %}

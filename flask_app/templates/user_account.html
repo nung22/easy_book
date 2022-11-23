@@ -1,0 +1,70 @@
+{% extends 'user_navbar.html' %}
+
+{% block site_info %}
+<div class="bg-light account">
+    <h2 class="fw-bold">Your Account</h2>
+    <div class="account-options">
+        <a href="">
+            <div class="account-option" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
+                <img class="card-img" src="{{ url_for('static', filename='assets/icons/search.png') }}" alt="image of magnifying glass">
+                <div class="card-info">
+                    <h5 class="card-header fw-bold">Current Rentals</h5>
+                    <p class="card-details">Track your current book rentals</p>
+                </div>
+            </div>
+        </a>
+        <a href="">
+            <div class="account-option" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
+                <img class="card-img" src="{{ url_for('static', filename='assets/icons/lock.png') }}" alt="image of shield">
+                <div class="card-info">
+                    <h5 class="card-header fw-bold">Login & Security</h5>
+                    <p class="card-details">Edit login, name, and phone number</p>
+                </div>
+            </div>
+        </a>
+        <a href="">
+            <div class="account-option" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
+                <img class="card-img" src="{{ url_for('static', filename='assets/icons/credit_card.png') }}" alt="image of credit card">
+                <div class="card-info">
+                    <h5 class="card-header fw-bold">Your Payments</h5>
+                    <p class="card-details">View all transactions</p>
+                </div>
+            </div>
+        </a>
+        <a href="">
+            <div class="account-option" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
+                <img class="card-img" src="{{ url_for('static', filename='assets/icons/star.png') }}" alt="image of star">
+                <div class="card-info">
+                    <h5 class="card-header fw-bold">Your Favorites</h5>
+                    <p class="card-details">View and modify your favorite books</p>
+                </div>
+            </div>
+        </a>
+        <a href="">
+            <div class="account-option" onmouseover="addShadow(this)" onmouseout="removeShadow(this)">
+                <img class="card-img" src="{{ url_for('static', filename='assets/icons/list.png') }}" alt="image of list">
+                <div class="card-info">
+                    <h5 class="card-header fw-bold">Rental History</h5>
+                    <p class="card-details">View your book rental history</p>
+                </div>
+            </div>
+        </a>
+        <div class="account-option" onmouseover="addShadow(this)" onmouseout="removeShadow(this)" onclick="displayConfirmation()">
+            <img class="card-img" src="{{ url_for('static', filename='assets/icons/x.png') }}" alt="image of X">
+            <div class="card-info">
+                <h5 class="card-header fw-bold">Sign Out</h5>
+                <p class="card-details">Exit your current session</p>
+            </div>
+        </div>
+    </div>
+    <div class="logout-popup visually-hidden">
+        <div class="message">
+            <p class="text-light fw-bold">Are you sure you want to sign out?</p>
+            <span><button class="btn btn-outline-warning fw-bold me-3" type="button" onclick="hideConfirmation()">Go Back</button><a class="btn btn-outline-danger fw-bold ms-3" href="/logout">Sign Out</a></span>
+        </div>
+    </div>
+</div>
+{% endblock site_info %}
+
+
+

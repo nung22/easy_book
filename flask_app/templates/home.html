@@ -1,0 +1,44 @@
+{% extends 'user_navbar.html' %}
+
+{% block site_info %}
+<div class="home">
+    <div id="carouselExampleCaptions" class="carousel slide carousel-fade home-carousel mt-4" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="{{ url_for('static', filename='assets/carousel/background.jpg') }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark block-1">
+                    <h5 class="first-slide">Your #1 Source For<br>Renting Riveting<br>Reads</h5>
+                    <p class="first-slide">Some representative placeholder content for the first slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="8000">
+                <img src="{{ url_for('static', filename='assets/carousel/book_stack.jpg') }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark block-2">
+                    <h5 class="second-slide">Sign Up Today<br>For a Discount<br>Off Your 1st Book</h5>
+                    <p class="second-slide">Some representative placeholder content for the second slide.</p>
+                </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="8000">
+                <img src="{{ url_for('static', filename='assets/carousel/kids_reading_books.jpg') }}" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark  block-3">
+                    <h5 class="third-slide">Rent Books to Help Others</h5>
+                    <p class="third-slide">10% of all proceeds are donated to <br> charities that support communities <br> with limited access to literature.</p>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</div>
+{% endblock site_info %}

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container p-3 grid-container-plant">
+    <div class="spacer"></div>
+    <a class="create-form-link text-end fs-6 bg-warning text-light btn" href="/plants/new">Add Painting</a>
+    <a class="return-form-link text-end fs-6 bg-info text-light btn" href="/plants">Dashboard</a>
+    <a class="logout-form-link text-end fs-6 bg-danger text-light btn" href="/logout">Logout</a>
+    <h1 class="form-title">Edit a Painting</h1>
+    <div class="plant-warning">
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <p class="flash-message rounded p-2 mb-2">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+    <form action="/edit_plant" method="post" class="form-container plant-form rounded p-4">
+        <input type="hidden" name="id" value="{{ plant.id }}">
+        <div class="form-group plant-name">
+            <label for="title">Title:</label>
+            <input required class="form-control" type="text" name="title" placeholder="title" id="title" value="{{ plant.title }}">
+        </div>
+        <div class="form-group plant-description">
+            <label for="description">Description:</label>
+            <textarea class="form-control" name="description" id="description" placeholder="description..." rows="3">{{ plant.description }}</textarea>
+        </div>
+        <div class="form-group plant-price">
+            <label for="price">Price:</label>
+            <input required class="form-control" type="number" name="price" step="0.01" placeholder="0.00" id="price" value="{{ plant.price }}">
+        </div>
+        <div class="form-group plant-quantity">
+            <label for="quantity">Quantity:</label>
+            <input required class="form-control" type="number" name="quantity" id="quantity" value="{{ plant.quantity }}">
+        </div>
+        <input class="form-control bg-success text-light btn plant-submit" type="submit" value="Submit">
+    </form>
+</div>
+
+{% endblock content %}

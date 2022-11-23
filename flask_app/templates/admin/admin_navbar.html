@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container admin-dashboard">
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <h2 class="navbar-brand mt-1 ms-3 fs-4">{{ current_page }}</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Welcome, {{ session['first_name'] }} {{ session['last_name'][0] }}.</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle {{ dashboard }}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/dashboard_books">Books</a></li>
+                            <li><a class="dropdown-item" href="/dashboard_users">Users</a></li>
+                            <li><a class="dropdown-item" href="/dashboard_rentals">Rentals</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item"><a class="nav-link {{ admin_tools }}" href="/add_book">Add Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/">Home Page</a></li>
+                </ul>
+                <a href="/logout" class="btn btn-outline-danger mt-3">Sign Out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% block dashboard %}
+    {% endblock dashboard %}
+</div>
+{% block tool %}
+{% endblock tool %}
+<div class="admin-table bg-light">
+    {% block table %}
+    {% endblock table %}
+</div>
+{% endblock content %}
