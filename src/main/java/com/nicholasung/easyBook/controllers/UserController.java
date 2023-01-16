@@ -23,6 +23,17 @@ public class UserController {
 	@Autowired
     private UserService userServ;
     
+//	// Directs to home page by default
+//	@GetMapping("/") 
+//	public String index() {
+//		return "redirect:/home";
+//	}
+//	
+//	// Renders home page 
+//	@GetMapping("/home")
+//	public String home()
+//	
+	
     @RequestMapping("/registration")
     public String registerForm(@Valid @ModelAttribute("user") User user) {
         return "registrationPage.jsp";
