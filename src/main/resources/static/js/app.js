@@ -1,21 +1,22 @@
 // Add active
 function addActive(element){
-    element.classList.add("active");
+    element.classList.add("active","text-dark");
 }
 
 // Remove active
 function removeActive(element){
-    element.classList.remove("active");
+    element.classList.remove("active","text-dark");
 }
 
 // Add pill
 function addPill(element){
-    element.classList.add("hover");
+	
+    element.classList.add("hover","text-dark");
 }
 
 // Remove pill
 function removePill(element){
-    element.classList.remove("hover");
+    element.classList.remove("hover","text-dark");
 }
 
 // Add shadow

@@ -15,9 +15,9 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item ms-5 text-center mt-1">
                     <c:if test="${currentUsername != null}">
-	                <h6 class="greeting fw-bold text-decoration-underline">Hello, ${param.currentUsername}</h6>
+	                <h6 class="greeting fw-bold text-decoration-underline">Hello, ${param.currentUsername}!</h6>
                     </c:if>
-                    <a class="nav-link fs-5 fw-bold" aria-current="page" onmouseover="addActive(this)" onmouseout="removeActive(this)" href="/account">Account</a>
+                    <a class="nav-link fs-5 fw-bold text-secondary" aria-current="page" onmouseover="addActive(this)" onmouseout="removeActive(this)" href="/account">Account</a>
                 </li>
                 <li class="nav-item ms-3">
                     <a class="nav-link" href="#"><img id="cart" src="./assets/icons/shopping_cart.png" alt="image of shopping cart"></a>
